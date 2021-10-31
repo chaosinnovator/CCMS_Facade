@@ -1,0 +1,57 @@
+{
+    "module_data": {
+        "name":"Facade",
+        "description":"Retail Management System",
+        "type":"Module",
+        "version":[0, 0, 0, 1],
+        "release_date":"2021-10-30",
+        "author": {
+            "name":"Thomas Boland",
+            "email":"hello@thomasboland.me",
+            "website":"http://ccms.thomasboland.me/packages/facade"
+        }
+    },
+
+    "dependencies": {
+        "modules": [
+            {"name":"CCMS", "min_version":[1, 9, 1, 0]},
+            {"name":"Mailer", "min_version":[1, 0, 0, 0]},
+            {"name":"Bootstrap", "min_version":[4, 1, 1, 0]},
+            {"name":"Database", "min_version":[1, 0, 0, 0]},
+            {"name":"FireSock", "min_version":[1, 0, 0, 0]},
+            {"name":"FontAwesome", "min_version":[5, 0, 13, 0]},
+            {"name":"JQuery", "min_version":[3, 3, 1, 0]},
+            {"name":"ModuleMenu", "min_version":[1, 0, 0, 0]},
+            {"name":"Page", "min_version":[1, 0, 0, 0]},
+            {"name":"Placeholders", "min_version":[1, 0, 0, 0]},
+            {"name":"SecureMenu", "min_version":[1, 0, 0, 0]}
+        ]
+    },
+
+    "routes": [
+        {"rank":101, "hook":"/.*/",                                           "target":"\\Package\\Facade::hookVerifyConfiguration",      "description":"Verify database configuration"},
+        {"rank":105, "hook":"/^web:.*/",                                      "target":"\\Package\\Facade::hookAuthenticateFromRequest",  "description":"Authenticate user (or anonymous)"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/new\\/?$/i",              "target":"\\Package\\Facade::hookNewUser",                  "description":"Create a new user"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/edit\\/?$/i",             "target":"\\Package\\Facade::hookEditUser",                 "description":"Edit a user"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/remove\\/?$/i",           "target":"\\Package\\Facade::hookRemoveUser",               "description":"Remove a user"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/password\\/reset\\/?$/i", "target":"\\Package\\Facade::hookPasswordReset",            "description":"Reset password to default"},
+        {"rank":350, "hook":"/^web:\\/?api\\/facade\\/password\\/edit\\/?$/i",  "target":"\\Package\\Facade::hookPasswordChange",           "description":"Change password"},
+        {"rank":393, "hook":"/(?!.*\\.[a-z]*$)^web:.*$/i",                    "target":"\\Package\\Facade::hookMenu",                     "description":"Add menus to admin menu"}
+    ],
+
+    "module_firesock": {
+        "subscriptions": [
+            {"hook":"facade", "target":"\\Package\\Facade\\FacadeSubscription"}
+        ]
+    },
+
+    "module_placeholders": {
+        "placeholders": [
+            {"hook":"/^item_preview$/i", "target":"\\Package\\User::placeholderLoginForm"}
+        ]
+    },
+
+    "module_search": {
+    
+    }
+}
