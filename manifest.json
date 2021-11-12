@@ -24,19 +24,27 @@
             {"name":"ModuleMenu", "min_version":[1, 0, 0, 0]},
             {"name":"Page", "min_version":[1, 0, 0, 0]},
             {"name":"Placeholders", "min_version":[1, 0, 0, 0]},
-            {"name":"SecureMenu", "min_version":[1, 0, 0, 0]}
+            {"name":"SecureMenu", "min_version":[1, 0, 0, 0]},
+            {"name":"User", "min_version":[1, 0, 0, 0]}
         ]
     },
 
     "routes": [
-        {"rank":101, "hook":"/.*/",                                           "target":"\\Package\\Facade::hookVerifyConfiguration",      "description":"Verify database configuration"},
-        {"rank":105, "hook":"/^web:.*/",                                      "target":"\\Package\\Facade::hookAuthenticateFromRequest",  "description":"Authenticate user (or anonymous)"},
-        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/new\\/?$/i",              "target":"\\Package\\Facade::hookNewUser",                  "description":"Create a new user"},
-        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/edit\\/?$/i",             "target":"\\Package\\Facade::hookEditUser",                 "description":"Edit a user"},
-        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/remove\\/?$/i",           "target":"\\Package\\Facade::hookRemoveUser",               "description":"Remove a user"},
-        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/password\\/reset\\/?$/i", "target":"\\Package\\Facade::hookPasswordReset",            "description":"Reset password to default"},
-        {"rank":350, "hook":"/^web:\\/?api\\/facade\\/password\\/edit\\/?$/i",  "target":"\\Package\\Facade::hookPasswordChange",           "description":"Change password"},
-        {"rank":393, "hook":"/(?!.*\\.[a-z]*$)^web:.*$/i",                    "target":"\\Package\\Facade::hookMenu",                     "description":"Add menus to admin menu"}
+        {"rank":101, "hook":"/.*/",                                                     "target":"\\Package\\Facade::hookVerifyConfiguration",      "description":"Verify database configuration"},
+        {"rank":105, "hook":"/^web:.*/",                                                "target":"\\Package\\Facade::hookAuthenticateFromRequest",  "description":"Authenticate user (or anonymous)"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/item\\/new\\/?$/i",               "target":"\\Package\\Facade::hookNewProduct",               "description":"Create a new product"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/item\\/edit\\/?$/i",              "target":"\\Package\\Facade::hookEditProduct",              "description":"Edit a product"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/item\\/drop\\/?$/i",              "target":"\\Package\\Facade::hookDropProduct",              "description":"Remove a product"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/item-category\\/new\\/?$/i",      "target":"\\Package\\Facade::hookNewCategory",              "description":"Create a new product category"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/item-category\\/edit\\/?$/i",     "target":"\\Package\\Facade::hookEditCategory",             "description":"Edit a product category"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/item-category\\/drop\\/?$/i",     "target":"\\Package\\Facade::hookDropCategory",             "description":"Remove a product category"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/item-brand\\/new\\/?$/i",         "target":"\\Package\\Facade::hookNewBrand",                 "description":"Create a new product brand"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/item-brand\\/edit\\/?$/i",        "target":"\\Package\\Facade::hookEditBrand",                "description":"Edit a product brand"},
+        {"rank":200, "hook":"/^web:\\/?api\\/facade\\/item-brand\\/drop\\/?$/i",        "target":"\\Package\\Facade::hookDropBrand",                "description":"Remove a product brand"},
+        {"rank":350, "hook":"/^web:\\/?product\\/.*$/i",                                "target":"\\Package\\Facade::hookProductDetailPage",        "description":"Display Product Detail Page"},
+        {"rank":350, "hook":"/^web:\\/?products\\/category\\/.*$/i",                    "target":"\\Package\\Facade::hookProductCategoryPage",      "description":"Display Product Category Page"},
+        {"rank":350, "hook":"/^web:\\/?products\\/brand\\/.*$/i",                       "target":"\\Package\\Facade::hookProductBrandPage",         "description":"Display Product Brand Page"},
+        {"rank":393, "hook":"/(?!.*\\.[a-z]*$)^web:.*$/i",                              "target":"\\Package\\Facade::hookMenu",                     "description":"Add menus to admin menu"}
     ],
 
     "module_firesock": {
@@ -52,6 +60,6 @@
     },
 
     "module_search": {
-    
+        "target":"\\Package\\Facade::search"
     }
 }

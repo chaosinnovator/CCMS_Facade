@@ -1,0 +1,22 @@
+<article class="facade-review" rel="schema:review" typeof="schema:Review">
+    <section class="facade-review-header">
+        <div class="facade-review-stars" rel="schema:reviewRating" typeof="schema:Rating">
+            <div class="hide" property="schema:ratingValue" content="{reviewValue}"></div>
+            <div class="hide" property="schema:bestRating" content="5"></div>
+            {reviewStar1}
+            {reviewStar2}
+            {reviewStar3}
+            {reviewStar4}
+            {reviewStar5}
+        </div>
+        <h3>{reviewTitle}</h3>
+        <span class="facade-review-author" rel="schema:author" typeof="schema:Person"><span property="schema:name"
+                content="{reviewAuthor}">{reviewAuthor}</span></span>
+        <span class="facade-review-date">{reviewDate}</span>
+    </section>
+    <section class="facade-review-body">
+        <p>
+            {reviewBody}
+        </p>
+    </section>
+</article>

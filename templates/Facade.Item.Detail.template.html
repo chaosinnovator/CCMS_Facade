@@ -1,0 +1,125 @@
+<div class="facade-item-detail" typeof="schema:Product">
+    <article class="facade-item-detail-article">
+        <section class="facade-item-detail-header">
+            {breadcrumbs}
+            <h1 class="facade-item-detail-title" property="schema:name" content="{productName}">
+                {productName}
+            </h1>
+            <span class="facade-item-detail-small" rel="schema:brand" typeof="schema:Brand">
+                Brand: <a href="{productBrandUrl}" property="schema:name" content="Blu Element">
+                    {productBrandName}</a>
+            </span>
+            <span class="facade-item-detail-small" property="schema:mpn" content="{productMPN}">
+                Model: {productMPN}
+            </span>
+            <span class="facade-item-detail-small" property="schema:sku" content="{productSKU}">
+                SKU: {productSKU}
+            </span>
+            <div class="hide" property="schema:gtin" content="{productGtin}"></div>
+        </section>
+        <section class="facade-item-detail-main">
+            <div class="facade-item-detail-main-left">
+                {gallery}
+                <p property="schema:description" content="{productCaption}">
+                    {productCaption}
+                </p>
+            </div>
+            <div class="facade-item-detail-main-right">
+                <div class="facade-item-detail-info"><!--
+                    <div class="facade-item-detail-review" rel="schema:aggregateRating" typeof="schema:AggregateRating">
+                        {overviewRatingStars}
+                        <div class="facade-review-aggregate">
+                            <span property="schema:ratingValue" content="4.5">{ratingValue}</span> (<span
+                                property="schema:reviewCount" content="2">{reviewCount}</span> reviews)
+                        </div>
+                    </div>-->
+                    <div class="facade-item-detail-price" rel="schema:offers" typeof="schema:Offer">
+                        <span class="facade-sr-only" property="schema:price"
+                            content="{priceWhole}.{priceDecimal}">${priceWhole}.{priceDecimal}</span>
+                        <div class="facade-price-lg" aria-hidden="true">
+                            ${priceWhole}
+                            <span class="facade-price-end">{priceDecimal}</span>
+                        </div>
+                        <div class="hide" property="schema:priceCurrency" content="{priceCurrency}"></div>
+                        <div class="hide" property="schema:availability" content="https://schema.org/{availabliltyCode}"></div>
+                        <div class="hide" property="schema:url"
+                            content="{productURL}">
+                        </div>
+                        <div class="hide" property="schema:priceValidUntil" datatype="xsd:date" content="{priceExpiry}"></div>
+                    </div>
+                    <aside class="facade-item-detail-variants">
+                        {productVariants}
+                    </aside>
+                    <div class="facade-item-detail-actions"><!--
+                        <form id="facade-item-detail-addform" class="facade-form facade-item-detail-addform"
+                            data-form="Facade.Cart.AddItem">
+                            <input type="hidden" name="sku" value="{productSKU}">
+                            <button type="submit" id="facade-item-detail-addcart" class="facade-btn-addtocart">Add
+                                to Cart</button>
+                        </form>
+                        <button id="facade-item-detail-addwishlist" class="facade-btn-wishlist">Add to
+                            Wishlist</button>-->
+                    </div>
+                    <p>Delivery available</p>
+                    <p>Free in-store pickup available</p>
+                </div>
+            </div>
+        </section>
+        <section id="description" class="facade-item-detail-description">
+            <h2 class="facade-item-detail-title">Description</h2>
+            <p>
+                {productDescription}
+            </p>
+        </section><!--
+        <aside class="facade-item-detail-recommended">
+            <h2 class="facade-item-detail-title">Recommended Accessories</h2>
+            {recommendedAccessories}
+        </aside>-->
+        <section class="facade-item-detail-tabs">
+            <ul class="nav nav-tabs" id="facade-item-detail-tabs-nav" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="more-info-tab" data-toggle="tab" href="#more-info" role="tab"
+                        aria-controls="more-info" aria-selected="true">More Info</a>
+                </li><!--
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="specs-tab" data-toggle="tab" href="#specs" role="tab" aria-controls="specs"
+                        aria-selected="false">Specs</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
+                        aria-controls="reviews" aria-selected="false">Reviews</a>
+                </li>-->
+            </ul>
+            <div class="tab-content" id="facade-item-detail-tabs-content">
+                <div class="tab-pane fade show active" id="more-info" role="tabpanel" aria-labelledby="more-info-tab">
+                    <section>
+                        {productPageContent}
+                    </section>
+                </div><!--
+                <div class="tab-pane fade" id="specs" role="tabpanel" aria-labelledby="specs-tab">
+                    <section>
+                        <p>Specs would go here</p>
+                    </section>
+                </div>
+                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                    <section>
+                        <p>
+                            No reviews yet.
+                        </p>
+                        <div class="facade-item-detail-review">
+                            {reviewsRatingStars}
+                            <div class="facade-review-aggregate">
+                                {ratingValue} ({reviewCount} reviews)
+                            </div>
+                        </div>
+                        {productReviews}
+                    </section>
+                </div>-->
+            </div>
+        </section><!--
+        <aside class="facade-item-detail-recommended">
+            <h2 class="facade-item-detail-title">Customers also bought</h2>
+            {recommendedProducts}
+        </aside>-->
+    </article>
+</div>
